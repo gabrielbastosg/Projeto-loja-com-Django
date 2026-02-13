@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista de Produtos{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'produtos/lista.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1 class="page-title">Lista de Produtos</h1>
+
+    <!-- ✅ RESUMO / MÉTRICAS -->
+    <div class="resumo">
+        <div class="resumo-card">
+            📦 Produtos: <strong>{{ total_produtos }}</strong>
+        </div>
+
+        <div class="resumo-card">
+            🧮 Estoque total: <strong>{{ total_estoque }}</strong>
+        </div>
+    </div>
+
+
+    <!-- Barra de busca -->
+    <div class="filtro-bar">
+        <form method="get" class="filtro-form">
+
+            <input type="text"
+                   name="busca"
+                   placeholder="🔍 Buscar por nome"
+                   value="{{ busca }}">
+
+            <select name="categoria">
+                <option value="">Todas as categorias</option>
+                {% for cat in categorias %}
+                    <option value="{{ cat.slug }}"
+                        {% if categoria_slug == cat.slug %}selected{% endif %}>
+                        {{ cat.nome }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Filtrar</button>
+
+        </form>
+    </div>
+
+
+    <!-- Lista -->
+    <ul class="produtos-grid">
+        {% for produto in produtos %}
+            <li data-categoria="{{ produto.categoria.nome }}" class="produto-card">
+
+                <div class="produto-nome">
+                    {{ produto.nome }}
+                </div>
+
+                <div class="produto-info">
+                    <span class="categoria-badge">
+                        {{ produto.categoria.nome }}
+                    </span>
+
+                    <span class="preco">
+                        R$ {{ produto.preco }}
+                    </span>
+                </div>
+
+                <!-- Estoque -->
+                {% if produto.estoque == 0 %}
+                    <div class="estoque-badge esgotado">🚫 ESGOTADO</div>
+
+                {% elif produto.estoque <= 3 %}
+                    <div class="estoque-badge baixo">⚠ Baixo estoque: {{ produto.estoque }}</div>
+
+                {% else %}
+                    <div class="estoque-badge disponivel">✔ Em estoque: {{ produto.estoque }}</div>
+                {% endif %}
+
+                <!-- Botões -->
+                <div class="links">
+                    <a class="detalhe" href="{% url 'produto_detalhe' produto.id %}">📄 Detalhe</a>
+                    <a class="vender" href="{% url 'vender_produto' produto.id %}"> ➖ Vender</a>
+                    <a class="repor" href="{% url 'repor_produto' produto.id %}"> ➕ Repor</a>
+                </div>
+
+            </li>
+        {% empty %}
+            <li class="empty">Nenhum produto encontrado</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}

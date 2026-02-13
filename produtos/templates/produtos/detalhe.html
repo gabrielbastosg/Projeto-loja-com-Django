@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhe do Produto</title>
+    <link rel="stylesheet" href="{% static 'produtos/detalhe.css' %}">
+</head>
+
+<body>
+    <div class="card">
+
+        <div class="nome">
+            {{ produto.nome }}
+        </div>
+
+        <div class="categoria">
+            {{ produto.categoria.nome }}
+        </div>
+
+        <div class="preco">
+            R$ {{ produto.preco }}
+        </div>
+
+        {% if produto.estoque == 0 %}
+            <div class="estoque zero">ESGOTADO</div>
+        {% else %}
+            <div class="estoque ok">Em estoque: {{ produto.estoque }}</div>
+        {% endif %}
+
+        <div class="botoes">
+            <a class="voltar" href="{% url 'lista_produtos' %}">⬅ Voltar</a>
+            <a class="vender" href="{% url 'vender_produto' produto.id %}">Vender</a>
+        </div>
+
+    </div>
+</body>
+</html>

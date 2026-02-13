@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Produtos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+</head>    
+
+<body>
+
+    <!-- MENSAGENS DO DJANGO -->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h1>Produtos</h1>
+
+    <div class="cards-container">
+        {% for produto in produtos %}
+            <div class="card">
+
+                <h2>
+                    <a href="{% url 'produto_detalhe' produto.id %}">
+                        {{ produto.nome }}
+                    </a>
+                </h2>
+
+                <p class="price">R$ {{ produto.preco }}</p>
+                <p class="stock">Estoque: {{ produto.estoque }}</p>
+
+                <!-- ⭐ ESGOTADO -->
+                {% if produto.estoque == 0 %}
+                    <span class="sold-out">⭐ ESGOTADO</span>
+                {% endif %}
+
+                <a href="{% url 'produtos_por_categoria' produto.categoria.id %}" 
+                   class="category-link categoria-{{ produto.categoria.nome }}">
+                    {{ produto.categoria.nome }}
+                </a>
+
+                <div class="buttons">
+
+                    <a href="{% url 'editar_produto' produto.id %}">
+                        <button class="edit-btn">Editar</button>
+                    </a>
+
+                    <a href="{% url 'excluir_produto' produto.id %}">
+                        <button class="delete-btn">Excluir</button>
+                    </a>
+
+                    <!-- ✅ botão vender inteligente -->
+                    {% if produto.estoque == 0 %}
+                        <button class="sell-btn disabled-btn" disabled>
+                            Vender
+                        </button>
+                    {% else %}
+                        <a href="{% url 'vender_produto' produto.id %}">
+                            <button class="sell-btn">Vender</button>
+                        </a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+        {% empty %}
+            <p>Nenhum produto cadastrado</p>
+        {% endfor %}
+    </div>
+
+    <!-- BOTÃO DE VOLTAR FIXO -->
+    <div class="back-button">
+        <a href="{% url 'lista_produtos' %}">⬅ Ver todos os produtos</a>
+    </div>
+
+</body>
+</html>

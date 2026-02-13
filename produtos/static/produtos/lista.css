@@ -1,0 +1,241 @@
+/* ===== CONTAINER CENTRAL ===== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* título */
+.page-title {
+    text-align: center;
+}
+
+/* barra do filtro */
+.filtro-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.filtro-form {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    width: fit-content;
+}
+
+/* grid */
+.produtos-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    padding: 25px;
+}
+
+/* ===== TÍTULO ===== */
+h1 {
+    text-align: left;
+    color: #1a237e;
+    margin-bottom: 18px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* ===== FORM (barra estilo painel) ===== */
+form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: white;
+    padding: 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+input, select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #ff006a; /* SUA COR */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* ===== GRID ===== */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+/* ===== CARD ===== */
+li {
+    border-radius: 15px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 12px 22px rgba(0,0,0,0.15);
+}
+
+/* ===== NOME ===== */
+.produto-nome {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* ===== INFO (categoria + preço) ===== */
+.produto-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* badge categoria */
+.categoria-badge {
+    background-color: rgba(0,0,0,0.08);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .5px;
+}
+
+/* preço destaque */
+.preco {
+    font-size: 19px;
+    font-weight: 700;
+    color: #2e7d32; /* SUA COR VERDE */
+}
+
+/* ===== BADGES DE ESTOQUE ===== */
+.estoque-badge {
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+/* verde */
+.disponivel {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* amarelo */
+.baixo {
+    background: #fff8e1;
+    color: #ff8f00;
+}
+
+/* vermelho */
+.esgotado {
+    background: #ffebee;
+    color: #c62828;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* ===== BOTÕES ===== */
+.links {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.links a {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    padding: 8px;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: white;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+/* SUAS CORES */
+.detalhe { background: #2196f3; }
+.vender  { background: #4caf50; }
+.repor   { background: #6a1b9a; }
+
+.links a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ===== FUNDO POR CATEGORIA (mantido) ===== */
+li[data-categoria="Roupas"] {
+    background-color: #e8f5e9;
+    border-left: 6px solid #31e737;
+}
+
+li[data-categoria="Eletronicos"] {
+    background-color: #e3f2fd;
+    border-left: 6px solid #2196f3;
+}
+
+li[data-categoria="Acessorios"] {
+    background-color: #fff3e0;
+    border-left: 6px solid #ff7b00;
+}
+
+/* ===== RESUMO ===== */
+.resumo {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.resumo-card {
+    background: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}

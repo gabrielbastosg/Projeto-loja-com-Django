@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema de Produtos{% endblock %}</title>
+    {% load static %}
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ===== BODY ===== */
+        body {
+            background: #f4f6f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: #1a237e;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            font-size: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== CONTEÚDO ===== */
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 30px auto;
+            flex: 1;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: #e0e0e0;
+            font-size: 14px;
+        }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <h2>🛒 Sistema de Estoque</h2>
+
+        <div>
+            <a href="{% url 'lista_produtos' %}">Produtos</a>
+            <a href="{% url 'historico_vendas' %}">Histórico de Vendas</a>
+            <a href="{% url 'admin:index' %}">Admin</a>
+            <a href="/produtos/dashboard/">Dashboard</a>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO DAS PÁGINAS -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2026 • Sistema de Estoque • Desenvolvido por Gabriel Bastos
+    </div>
+
+</body>
+</html>

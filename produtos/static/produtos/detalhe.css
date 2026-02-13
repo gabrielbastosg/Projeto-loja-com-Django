@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card central */
+.card {
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    width: 340px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Nome */
+.nome {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* badge categoria */
+.categoria {
+    width: fit-content;
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* preço */
+.preco {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* estoque */
+.estoque {
+    font-weight: bold;
+}
+
+.estoque.ok {
+    color: #2e7d32;
+}
+
+.estoque.zero {
+    color: #c62828;
+}
+
+/* botões */
+.botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.botoes a {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.voltar {
+    background: #757575;
+}
+
+.vender {
+    background: #4caf50;
+}
+
+.voltar:hover {
+    background: #616161;
+}
+
+.vender:hover {
+    background: #388e3c;
+}

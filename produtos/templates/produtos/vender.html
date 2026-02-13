@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Vender {{ produto.nome }}</title>
+    <link rel="stylesheet" href="{% static 'produtos/vender.css' %}">
+</head>
+
+<body>
+    <div class="card">
+
+        <h1 class="titulo">Vender {{ produto.nome }}</h1>
+
+        <p class="estoque">
+            Estoque atual: <strong>{{ produto.estoque }}</strong>
+        </p>
+
+        <!-- mensagens -->
+        {% for message in messages %}
+            <div class="mensagem-erro">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Quantidade</label>
+            {{ form.quantidade }}
+
+            <div class="botoes">
+                <button class="confirmar" type="submit"
+                    {% if produto.estoque == 0 %}disabled{% endif %}>
+                    Confirmar venda
+                </button>
+
+                <a class="voltar" href="{% url 'lista_produtos' %}">
+                    Voltar
+                </a>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
+

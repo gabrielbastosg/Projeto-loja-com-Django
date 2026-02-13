@@ -1,0 +1,263 @@
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 40px;
+}
+
+/* Título da página */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+/* Container de cards */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Card individual */
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 20px 25px;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.card h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Preço e estoque */
+.price {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.stock {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Categoria */
+.category-link {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.card .category-link {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* cores por categoria */
+.categoria-Roupas { background-color: #3498db; }
+.categoria-Eletronicos { background-color: #e67e22; }
+.categoria-Acessorios { background-color: #2ecc71; }
+
+/* Container dos botões */
+.card .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Botões dos cards */
+.card button {
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+/* Botões editar/excluir */
+.edit-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #c0392b;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #1e8449;
+}
+
+.delete-btn:hover {
+    background-color: #922b21;
+}
+
+/* Botão voltar */
+.back-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+
+.back-button a {
+    background-color: #3498db;
+    color: white;
+    padding: 16px 26px;
+    font-size: 1.1em;
+    min-width: 220px;
+    text-align: center;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.back-button a:hover {
+    transform: translateY(-3px) scale(1.05);
+    background-color: #217dbb;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Formulário */
+form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    max-width: 450px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1.1em;
+}
+
+form button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 14px;
+    font-size: 1.1em;
+}
+
+/* Container do formulário */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.form-container form {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Botão vender */
+.sell-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 7px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.sell-btn:hover {
+    background-color: #218838;
+}
+
+/* Botão desabilitado */
+.disabled-btn {
+    background-color: #7f8c8d;
+    cursor: not-allowed;
+    color: #ecf0f1;
+}
+
+/* Mensagens Django */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.messages li {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+li.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+li.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    font-size: 1.05em;
+}
+
+/* Formulário desabilitado */
+.disabled-form {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Mensagem central */
+.center-msg {
+    text-align: center;
+    font-size: 1.1em;
+    max-width: 450px;
+    margin: 15px auto;
+}
+/* Badge ESGOTADO */
+.sold-out {
+    display: block;
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 6px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
