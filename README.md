@@ -47,6 +47,7 @@ pip install -r requirements.txt
 
 Rodar:
 python manage.py migrate
+
 python manage.py runserver
 
 Acesse:
