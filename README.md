@@ -31,10 +31,10 @@ Projeto web desenvolvido com Django para gerenciamento de produtos, estoque e ve
 ### Dashboard
 ![Dashboard](docs/images/dashboard.jpg)
 ### Lista de Produtos
-![Lista de Produtos](docs/images/lista-produtos.jpg)
+![Lista de Produtos](docs/images/lista_de_produtos.jpg)
 
 ### Histórico de Vendas
-![Histórico de Vendas](docs/images/historico-vendas.jpg)
+![Histórico de Vendas](docs/images/historico_de_vendas.jpg)
 
 
 ## ⚙️ Como rodar o projeto
